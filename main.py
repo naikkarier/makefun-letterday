@@ -14,6 +14,8 @@ def main():
     assert "\r" not in text, "entry must not contain a carriage return"
     with open(os.path.join(out_dir, "entry.txt"), "w", encoding="utf-8") as f:
         f.write(text)
+    with open(os.path.join(out_dir, "entry.txt"), encoding="utf-8") as f:
+        assert f.read() == text, "written entry does not match the letter"
 
 
 if __name__ == "__main__":
